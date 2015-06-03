@@ -2,13 +2,18 @@ program test
     use omp_lib
     implicit none
     real(8) ::  dx, x
-    integer, parameter  ::  n = 10000000
-    real(8) ::  y(n), start, finish
-
-    integer ::  thread_num, i, j 
-
-    call cpu_time(start)
-    !$ call omp_set_num_threads(4)
+    integer, parameter  ::  n = 100000
+    real(8) ::  y(n)
+    integer ::  start, finish, rate
+    integer ::  nthreads, i, j
+    
+    !$ print *, "How many threads to use? "
+    !$ read *, nthreads
+    !$ call omp_set_num_threads(nthreads)
+    
+    call system_clock(start)
+    
+    !$ call omp_set_num_threads(thread_num)
 
     dx = 1.d0/ (real(n)+1.d0)
     print*, "Test OMP"
@@ -21,7 +26,7 @@ program test
     enddo
     enddo
 
-    call cpu_time(finish)
-    print*, "Elpsed time is", finish-start, "seconds"
+    call system_clock(finish,rate)
+    print*, "Elpsed time is",(float(finish)-float(start))/float(rate), "seconds"
 
 end program test
