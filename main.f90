@@ -1,3 +1,4 @@
+program test   
     use omp_lib
     implicit none
     real(8) ::  dx, x
