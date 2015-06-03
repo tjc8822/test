@@ -13,7 +13,7 @@ program test
     
     call system_clock(start)
     
-    !$ call omp_set_num_threads(thread_num)
+    !$ call omp_set_num_threads(nthreads)
 
     dx = 1.d0/ (real(n)+1.d0)
     print*, "Test OMP"
