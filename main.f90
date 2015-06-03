@@ -2,7 +2,7 @@ program test
     use omp_lib
     implicit none
     real(8) ::  dx, x
-    integer, parameter  ::  n = 10000
+    integer, parameter  ::  n = 10000000
     real(8) ::  y(n), start, finish
 
     integer ::  thread_num, i, j 
