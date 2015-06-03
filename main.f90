@@ -5,7 +5,7 @@ program test
     integer, parameter  ::  n = 100000
     real(8) ::  y(n)
     integer ::  start, finish, rate
-    integer ::  nthreads, i, j
+    integer ::  nthreads, i, j, counter
     
     !$ print *, "How many threads to use? "
     !$ read *, nthreads
@@ -23,6 +23,8 @@ program test
         do j =1,n 
        x = real(i) * dx
        y(i) = exp(x) *cos(x) * sin(x) * sqrt(5.d0*x + 6.d0)
+       counter = counter + 1
+       print*, 'Iteration ', counter
     enddo
     enddo
 
